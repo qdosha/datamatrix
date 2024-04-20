@@ -1,0 +1,37 @@
+.flex {
+    display: flex;
+}
+
+body {
+    background-color: #1161EF;
+    font-family: 'Gotham Pro Black';
+}
+
+.body__wrapper {
+    padding: 30px;
+}
+
+
+@font-face {
+    font-family: 'Gotham Pro Black';
+    src: url(../font/GothamProBlack.ttf);
+}
+
+.btn {
+    padding: 22px 40px;
+    background-color: #1161EF;
+
+    color: #fff;
+    font-size: 36px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    opacity: 0.95;
+}
+
+.btn:active {
+    border: 1px solid #1161EF;
+    background-color: #fff;
+    color: #1161EF;
+}

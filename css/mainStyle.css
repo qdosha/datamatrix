@@ -1,0 +1,52 @@
+.main__container {
+    width: calc(100vw - 60px);
+    min-height: calc(100vh - 60px);
+
+    background-color: #fff;
+
+    padding: 36px;
+
+    border-radius: 15px;
+
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main__top {
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 58px;
+}
+
+.main__bottom {
+    width: 100%;
+    justify-content: space-between;
+}
+
+.textarea {
+    min-width: 100%;
+    min-height: 475px;
+
+    background-color: rgba(17, 97, 239, .15);
+
+    border-radius: 15px;
+    padding: 15px;
+    
+    color: #000;
+    font-size: 24px;
+}
+
+.main__left {
+    width: calc(((100vw - 60px) - 36px) / 2);
+    margin-right: 36px;
+}
+
+.main__right {
+    width: calc(((100vw - 60px) - 36px) / 2);
+}
+
+.main__title {
+    font-size: 64px;
+    margin-bottom: 20px;
+}
