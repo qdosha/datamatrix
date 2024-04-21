@@ -6,12 +6,24 @@ function clearTextarea() {
 }
 
 function renderingDataMatrix() {
-    let input = document.getElementById('input');
-    let DataMatrix = input.value.replace(/\r\n/g,"\n").split("\n");
+    let inputTextArea = document.getElementById('input');
+    let outputTextArea = document.getElementById('output');
+    outputTextArea.value = "";
 
-    let clearDataMatrix = []
+    let DataMatrix = inputTextArea.value.replace(/\r\n/g,"\n").split("\n");
 
-    DataMatrix.forEach(element => {
+    let clearDataMatrix = DataMatrixClear(DataMatrix);
+
+    clearDataMatrix.forEach(element => {
+        outputTextArea.value += element;
+    })
+}
+
+
+function DataMatrixClear (DataMatrixList) {
+    let clearDataMatrix = [];
+
+    DataMatrixList.forEach(element => {
         let arrayDataMatrix = element.split('');
         if (arrayDataMatrix.length != 0) {
            if ((arrayDataMatrix[0] == '0' & arrayDataMatrix[1] == '1') & (arrayDataMatrix[16] == '2' & arrayDataMatrix[17] == '1')) {
@@ -27,8 +39,5 @@ function renderingDataMatrix() {
         }
     });
 
-    let outputTextArea = document.getElementById('output');
-    clearDataMatrix.forEach(element => {
-        outputTextArea.value += element;
-    })
+    return clearDataMatrix;
 }
