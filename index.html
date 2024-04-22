@@ -7,10 +7,12 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/baseStyle.css">
     <link rel="stylesheet" href="css/mainStyle.css">
+    <link rel="stylesheet" href="css/alertStyle.css">
     <title>DataMatrix</title>
 </head>
 <body>
     <div class="body__wrapper">
+        <div class="successful">Скопирован</div>
         <main class="main">
             <div class="container main__container flex">
                 <div class="main__top flex">
@@ -20,7 +22,8 @@
                     </div>
                     <div class="main__right">
                         <h2 class="titel main__title" id="done">Результат</h2>
-                        <textarea id="output" cols="30" rows="10" class="textarea" readonly></textarea>
+                        <!-- <textarea id="output" cols="30" rows="10" class="textarea" readonly></textarea> -->
+                        <div id="output" class="textarea"></div>
                     </div>
                 </div>
                 <div class="main__bottom flex">

@@ -2,20 +2,20 @@ function clearTextarea() {
     let input = document.getElementById('input');
     input.value = '';
     let output = document.getElementById('output');
-    output.value = '';
+    output.innerHTML = '';
 }
 
 function renderingDataMatrix() {
     let inputTextArea = document.getElementById('input');
     let outputTextArea = document.getElementById('output');
-    outputTextArea.value = "";
+    outputTextArea.innerHTML = '';
 
     let DataMatrix = inputTextArea.value.replace(/\r\n/g,"\n").split("\n");
 
     let clearDataMatrix = DataMatrixClear(DataMatrix);
 
     clearDataMatrix.forEach(element => {
-        outputTextArea.value += element;
+        outputTextArea.innerHTML += element;
     })
 }
 
@@ -31,13 +31,24 @@ function DataMatrixClear (DataMatrixList) {
                 arrayDataMatrix.splice(18, 2, '(', '2', '1', ')');
 
                 let cutArrayDataMatrix = arrayDataMatrix.splice(0, 29);
-                clearDataMatrix.push(cutArrayDataMatrix.join("") + "\n");
+                clearDataMatrix.push("<p onclick=\"CopyText(this)\">" + cutArrayDataMatrix.join("") + "</p>\n");
            } else {
                 let cutArrayDataMatrix = arrayDataMatrix.splice(0, 21);
-                clearDataMatrix.push(cutArrayDataMatrix.join("") + "\n");
+                clearDataMatrix.push("<p onclick=\"CopyText(this)\">" + cutArrayDataMatrix.join("") + "</p>\n");
            }
         }
     });
 
     return clearDataMatrix;
+}
+
+
+function CopyText(element) {
+    navigator.clipboard.writeText(element.textContent);
+
+    let successful = document.querySelector(".successful");
+    successful.classList.add("active");
+    setTimeout(() => {
+        successful.classList.remove("active");
+    }, 2000);
 }
