@@ -50,3 +50,7 @@
     font-size: 64px;
     margin-bottom: 20px;
 }
+
+p {
+    transition: background-color .6s ease-in-out, color .6s ease-in-out;
+}

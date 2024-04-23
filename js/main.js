@@ -44,11 +44,18 @@ function DataMatrixClear (DataMatrixList) {
 
 
 function CopyText(element) {
+    let alertClass = document.querySelector(".p--alert");
+    if (alertClass != null) {
+        alertClass.classList.remove("p--alert");
+    }
+
     navigator.clipboard.writeText(element.textContent);
+
+    element.classList.add("p--alert");
 
     let successful = document.querySelector(".successful");
     successful.classList.add("active");
     setTimeout(() => {
         successful.classList.remove("active");
-    }, 2000);
+    }, 1000);
 }

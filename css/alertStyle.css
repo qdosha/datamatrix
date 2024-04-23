@@ -16,3 +16,8 @@
 .successful.active{
     transform: translateY(0);
 }
+
+.p--alert {
+    background-color: #1161EF;
+    color: #fff;
+}
