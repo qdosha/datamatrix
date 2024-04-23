@@ -25,7 +25,6 @@ function DataMatrixClear (DataMatrixList) {
 
     DataMatrixList.forEach(element => {
         let arrayDataMatrix = element.split('');
-        arrayDataMatrix = checkElement(arrayDataMatrix);
 
         if (arrayDataMatrix.length != 0) {
            if ((arrayDataMatrix[0] == '0' & arrayDataMatrix[1] == '1') & (arrayDataMatrix[16] == '2' & arrayDataMatrix[17] == '1')) {
@@ -33,10 +32,10 @@ function DataMatrixClear (DataMatrixList) {
                 arrayDataMatrix.splice(18, 2, '(', '2', '1', ')');
 
                 let cutArrayDataMatrix = arrayDataMatrix.splice(0, 29);
-                clearDataMatrix.push("<p onclick=\"CopyText(this)\">" + cutArrayDataMatrix.join("") + "</p>\n");
+                clearDataMatrix.push("<p onclick=\"CopyText(this)\">" + cutArrayDataMatrix.join("").replace("<", "&lt;") + "</p>\n");
            } else {
                 let cutArrayDataMatrix = arrayDataMatrix.splice(0, 21);
-                clearDataMatrix.push("<p onclick=\"CopyText(this)\">" + cutArrayDataMatrix.join("") + "</p>\n");
+                clearDataMatrix.push("<p onclick=\"CopyText(this)\">" + cutArrayDataMatrix.join("").replace("<", "&lt;") + "</p>\n");
            }
         }
     });
@@ -60,15 +59,4 @@ function CopyText(element) {
     setTimeout(() => {
         successful.classList.remove("active");
     }, 1000);
-}
-
-
-function checkElement(element) {
-    element.forEach(litter => {
-        if (litter == "<") {
-            indexElement = element.indexOf("<");
-            element.splice(16, 1, "&lt;");
-        }
-    });
-    return element;
 }
