@@ -32,10 +32,10 @@ function DataMatrixClear (DataMatrixList) {
                 arrayDataMatrix.splice(18, 2, '(', '2', '1', ')');
 
                 let cutArrayDataMatrix = arrayDataMatrix.splice(0, 29);
-                clearDataMatrix.push("<p onclick=\"CopyText(this)\">" + cutArrayDataMatrix.join("").replace("<", "&lt;") + "</p>\n");
+                clearDataMatrix.push("<p onclick=\"CopyText(this)\">" + cutArrayDataMatrix.join("").replaceAll("<", "&lt;") + "</p>\n");
            } else {
                 let cutArrayDataMatrix = arrayDataMatrix.splice(0, 21);
-                clearDataMatrix.push("<p onclick=\"CopyText(this)\">" + cutArrayDataMatrix.join("").replace("<", "&lt;") + "</p>\n");
+                clearDataMatrix.push("<p onclick=\"CopyText(this)\">" + cutArrayDataMatrix.join("").replaceAll("<", "&lt;") + "</p>\n");
            }
         }
     });
@@ -53,10 +53,4 @@ function CopyText(element) {
     navigator.clipboard.writeText(element.textContent);
 
     element.classList.add("p--alert");
-
-    let successful = document.querySelector(".successful");
-    successful.classList.add("active");
-    setTimeout(() => {
-        successful.classList.remove("active");
-    }, 1000);
 }
